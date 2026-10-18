@@ -721,7 +721,26 @@ function doConnect() {
   els.myId.disabled = true;
   save(LS.me, id);
 
-  peer = new Peer(id, { debug: 1 });
+  // СПОСОБ 1 + СПОСОБ 2: альтернативный хост и TURN/STUN
+  peer = new Peer(id, { 
+    debug: 1,
+    host: '1.peerjs.com',
+    port: 443,
+    secure: true,
+    path: '/',
+    config: {
+      iceServers: [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'stun:global.stun.twilio.com:3478' },
+        {
+          urls: 'turn:openrelay.metered.ca:80',
+          username: 'openrelayproject',
+          credential: 'openrelayproject'
+        }
+      ]
+    }
+  });
+
   peer.on('open', (pid) => {
     setStatus('онлайн: ' + pid, true);
     renderContacts();
@@ -796,4 +815,4 @@ els.msgInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMes
 })();
 </script>
 </body>
-</html>
+  </html>
