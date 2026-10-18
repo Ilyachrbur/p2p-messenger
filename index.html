@@ -563,7 +563,6 @@ function renderContacts() {
 
   let html = '';
 
-  // Quick add из поиска
   if (q && !list.some(c => c.id.toLowerCase() === q)) {
     html += `
       <div class="quick-add" data-quickadd="${esc(filter.trim())}">
@@ -721,10 +720,14 @@ function doConnect() {
   els.myId.disabled = true;
   save(LS.me, id);
 
-  // СПОСОБ 1: Используем официальный сервер по умолчанию (без host/port/path)
-  // СПОСОБ 2: Оставляем публичные STUN/TURN для пробивки NAT
+  // ВАШ СЕРВЕР VERCEL + STUN/TURN
   peer = new Peer(id, { 
     debug: 1,
+    host: 'peerjs-server-vercel-alpha.vercel.app', // Ваш сервер
+    port: 443,
+    secure: true,
+    path: '/',
+    key: 'peerjs',
     config: {
       iceServers: [
         { urls: 'stun:stun.l.google.com:19302' },
@@ -743,6 +746,7 @@ function doConnect() {
     renderContacts();
   });
   peer.on('error', (err) => {
+    console.error('PeerJS Error:', err);
     setStatus('ошибка: ' + err.type, false);
     if (err.type === 'unavailable-id') {
       alert('Этот ID занят, выберите другой.');
@@ -812,4 +816,4 @@ els.msgInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMes
 })();
 </script>
 </body>
-          </html>
+        </html>
