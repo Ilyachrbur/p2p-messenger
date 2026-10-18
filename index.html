@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>P2P Messenger</title>
+<title>P2P Messenger (Trystero)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -125,7 +125,6 @@ input { outline:none; }
   width:40px; height:40px; border-radius:12px; display:grid; place-items:center;
   font-weight:600; font-size:15px; color:#fff; flex-shrink:0; position:relative; overflow:hidden;
 }
-.avatar img { width:100%; height:100%; object-fit:cover; }
 .avatar__dot {
   position:absolute; right:-2px; bottom:-2px; width:12px; height:12px;
   border-radius:50%; background:var(--online); border:2px solid var(--panel);
@@ -150,7 +149,6 @@ input { outline:none; }
 
 .empty { padding:40px 20px; text-align:center; color:var(--text-mute); font-size:13px; line-height:1.6; }
 
-/* quick add in search */
 .quick-add {
   margin:8px; padding:10px 12px; border-radius:10px;
   background:var(--accent-soft); border:1px dashed var(--accent);
@@ -159,7 +157,6 @@ input { outline:none; }
   transition:all var(--transition);
 }
 .quick-add:hover { background:var(--accent); color:#fff; border-style:solid; }
-.quick-add svg { flex-shrink:0; }
 
 /* ============ MAIN ============ */
 .main { display:flex; flex-direction:column; min-width:0; background:var(--bg); }
@@ -286,12 +283,11 @@ input { outline:none; }
 .modal__field input {
   width:100%; padding:10px 12px; background:var(--panel-2);
   border:1px solid var(--border); border-radius:10px; font-size:14px;
-  transition:border-color var(--transition), box-shadow var(--transition);
 }
 .modal__field input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
 .modal__error {
   font-size:12px; color:var(--danger); margin-top:-8px; margin-bottom:12px;
-  min-height:16px; transition:opacity var(--transition);
+  min-height:16px;
 }
 .modal__actions { display:flex; gap:10px; justify-content:flex-end; margin-top:6px; }
 .modal__actions .btn { padding:10px 18px; }
@@ -322,10 +318,10 @@ input { outline:none; }
         <div class="brand__logo">P</div>
         <div style="flex:1">
           <div class="brand__name">P2P Messenger</div>
-          <div class="brand__sub">прямое соединение</div>
+          <div class="brand__sub">Trystero (Nostr) · без сервера</div>
         </div>
-        <button class="theme-toggle" id="themeBtn" title="Сменить тему">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <button class="theme-toggle" id="themeBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
       </div>
 
@@ -335,12 +331,12 @@ input { outline:none; }
       </div>
 
       <div class="search-wrap">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <input id="searchInput" placeholder="Поиск или добавление по ID...">
       </div>
 
       <button class="btn btn--ghost" id="addContactBtn" style="width:100%">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         Добавить контакт
       </button>
     </div>
@@ -351,7 +347,7 @@ input { outline:none; }
   <main class="main">
     <header class="topbar">
       <button class="btn--icon menu-toggle" id="menuBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <div class="avatar" id="topAvatar" style="width:38px;height:38px;font-size:14px;background:#334155">?</div>
       <div class="topbar__info">
@@ -364,7 +360,7 @@ input { outline:none; }
       <div class="chat-empty" id="chatEmpty">
         <div>
           <div class="chat-empty__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           </div>
           <h2>Начните беседу</h2>
           <p>Введите свой ID слева, затем нажмите «Добавить контакт» и введите ID собеседника.</p>
@@ -376,20 +372,19 @@ input { outline:none; }
       <div class="composer__field">
         <input id="msgInput" placeholder="Сообщение..." disabled>
       </div>
-      <button class="send-btn" id="sendBtn" disabled title="Отправить">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <button class="send-btn" id="sendBtn" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
   </main>
 </div>
 
-<!-- MODAL: ADD CONTACT -->
+<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal__backdrop" data-close></div>
-  <div class="modal__box" role="dialog" aria-labelledby="modalTitle">
-    <div class="modal__title" id="modalTitle">Новый контакт</div>
+  <div class="modal__box">
+    <div class="modal__title">Новый контакт</div>
     <div class="modal__sub">Введите ID собеседника. Он должен быть онлайн, чтобы установить соединение.</div>
-
     <div class="modal__field">
       <label for="modalId">ID собеседника</label>
       <input id="modalId" placeholder="например, bob-456" autocomplete="off">
@@ -399,7 +394,6 @@ input { outline:none; }
       <input id="modalName" placeholder="Как сохранить в контактах" autocomplete="off">
     </div>
     <div class="modal__error" id="modalError"></div>
-
     <div class="modal__actions">
       <button class="btn btn--ghost" data-close>Отмена</button>
       <button class="btn" id="modalSubmit">Добавить</button>
@@ -407,19 +401,22 @@ input { outline:none; }
   </div>
 </div>
 
-<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-<script>
+<script type="module">
+import { joinRoom } from 'https://cdn.jsdelivr.net/npm/trystero@0.25.4/nostr.min.js';
+
 /* ================= STORAGE ================= */
 const LS = { me:'p2p_me', contacts:'p2p_contacts', history:'p2p_history', theme:'p2p_theme' };
 const load = (k, f) => { try { return JSON.parse(localStorage.getItem(k)) ?? f; } catch { return f; } };
 const save = (k, v) => localStorage.setItem(k, JSON.stringify(v));
 
 /* ================= STATE ================= */
-let peer = null, conn = null;
-let contacts = load(LS.contacts, []);
-let history = load(LS.history, {});
+let room = null;
+let sendMessageAction = null;
 let activePeer = null;
 let filter = '';
+let myId = '';
+let contacts = load(LS.contacts, []);
+let history = load(LS.history, {});
 
 /* ================= DOM ================= */
 const $ = id => document.getElementById(id);
@@ -461,8 +458,8 @@ function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   save(LS.theme, theme);
   els.themeBtn.innerHTML = theme === 'dark'
-    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
-    : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
+    : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 }
 els.themeBtn.addEventListener('click', () => {
   applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
@@ -490,31 +487,20 @@ els.modal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && els.modal.classList.contains('show')) closeModal();
 });
-
-els.modalId.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') els.modalName.focus();
-});
-els.modalName.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') els.modalSubmit.click();
-});
+els.modalId.addEventListener('keydown', (e) => { if (e.key === 'Enter') els.modalName.focus(); });
+els.modalName.addEventListener('keydown', (e) => { if (e.key === 'Enter') els.modalSubmit.click(); });
 
 els.modalSubmit.addEventListener('click', () => {
   const id = els.modalId.value.trim();
   const name = els.modalName.value.trim();
 
   if (!id) { els.modalError.textContent = 'Введите ID собеседника'; return; }
-  if (!/^[a-zA-Z0-9_-]+$/.test(id)) {
-    els.modalError.textContent = 'ID может содержать только буквы, цифры, _ и -'; return;
-  }
+  if (!/^[a-zA-Z0-9_-]+$/.test(id)) { els.modalError.textContent = 'ID может содержать только буквы, цифры, _ и -'; return; }
   if (id.length < 3) { els.modalError.textContent = 'ID должен быть не короче 3 символов'; return; }
-  if (peer && id === peer.id) { els.modalError.textContent = 'Это ваш собственный ID'; return; }
+  if (id === myId) { els.modalError.textContent = 'Это ваш собственный ID'; return; }
 
   const existing = findContact(id);
-  if (existing) {
-    closeModal();
-    openChat(id);
-    return;
-  }
+  if (existing) { closeModal(); openChat(id); return; }
 
   upsertContact(id, name || id, false);
   closeModal();
@@ -564,17 +550,13 @@ function renderContacts() {
   let html = '';
 
   if (q && !list.some(c => c.id.toLowerCase() === q)) {
-    html += `
-      <div class="quick-add" data-quickadd="${esc(filter.trim())}">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Добавить «${esc(filter.trim())}» как контакт
-      </div>`;
+    html += `<div class="quick-add" data-quickadd="${esc(filter.trim())}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Добавить «${esc(filter.trim())}» как контакт</div>`;
   }
 
   if (!list.length) {
-    html += `<div class="empty">${contacts.length
-      ? 'Ничего не найдено'
-      : 'Пока нет контактов.<br>Нажмите «Добавить контакт» выше.'}</div>`;
+    html += `<div class="empty">${contacts.length ? 'Ничего не найдено' : 'Пока нет контактов.<br>Нажмите «Добавить контакт» выше.'}</div>`;
     els.contacts.innerHTML = html;
     bindQuickAdd();
     return;
@@ -584,26 +566,17 @@ function renderContacts() {
   const others = list.filter(c => !c.friend);
 
   const renderItem = c => {
-    const online = conn && conn.open && conn.peer === c.id;
-    return `
-    <div class="contact ${c.id === activePeer ? 'active' : ''}" data-id="${esc(c.id)}">
-      <div style="position:relative">
-        ${avatarHtml(c.name, 40, 12)}
-        <div class="avatar__dot ${online ? 'on' : ''}"></div>
-      </div>
+    const online = room && room.getPeers()[c.id];
+    return `<div class="contact ${c.id === activePeer ? 'active' : ''}" data-id="${esc(c.id)}">
+      <div style="position:relative">${avatarHtml(c.name, 40, 12)}<div class="avatar__dot ${online ? 'on' : ''}"></div></div>
       <div class="contact__body">
         <div class="contact__name">${c.friend ? '<span class="star">★</span>' : ''}${esc(c.name)}</div>
         <div class="contact__preview">${esc(lastMessagePreview(c.id))}</div>
       </div>
       <div class="contact__actions">
-        <button class="btn--icon" data-act="friend" data-id="${esc(c.id)}" title="${c.friend ? 'Убрать из друзей' : 'В друзья'}">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="${c.friend ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </button>
-        <button class="btn--icon" data-act="del" data-id="${esc(c.id)}" title="Удалить">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-    </div>`;
+        <button class="btn--icon" data-act="friend" data-id="${esc(c.id)}"><svg width="14" height="14" viewBox="0 0 24 24" fill="${c.friend ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+        <button class="btn--icon" data-act="del" data-id="${esc(c.id)}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div></div>`;
   };
 
   if (friends.length) html += `<div class="section-label">Друзья</div>` + friends.map(renderItem).join('');
@@ -655,9 +628,10 @@ function openChat(peerId) {
   renderChat();
   closeSidebar();
 
-  if (peer && peer.open && peerId !== peer.id) {
-    if (!conn || !conn.open || conn.peer !== peerId) connectTo(peerId);
-    else { setStatus('в сети', true); enableComposer(true); }
+  if (room) {
+    const peer = room.getPeers()[peerId];
+    if (peer) { setStatus('в сети', true); enableComposer(true); }
+    else { setStatus('не в сети (ожидание)', false); enableComposer(false); }
   }
 }
 
@@ -712,88 +686,66 @@ function setStatus(text, online) {
   els.status.classList.toggle('online', !!online);
 }
 
-/* ================= PEERJS ================= */
-function doConnect() {
+/* ================= TRYSTERO ================= */
+async function doConnect() {
   const id = els.myId.value.trim();
   if (!id) { alert('Введите свой ID'); return; }
+  if (!/^[a-zA-Z0-9_-]+$/.test(id) || id.length < 3) { alert('ID: 3+ символа (буквы, цифры, _, -)'); return; }
+
   els.connectBtn.disabled = true;
   els.myId.disabled = true;
+  myId = id;
   save(LS.me, id);
 
-  // ВАШ СЕРВЕР VERCEL + STUN/TURN
-  peer = new Peer(id, { 
-    debug: 1,
-    host: 'peerjs-server-vercel-alpha.vercel.app', // Ваш сервер
-    port: 443,
-    secure: true,
-    path: '/',
-    key: 'peerjs',
-    config: {
-      iceServers: [
-        { urls: 'stun:stun.l.google.com:19302' },
-        { urls: 'stun:global.stun.twilio.com:3478' },
-        {
-          urls: 'turn:openrelay.metered.ca:80',
-          username: 'openrelayproject',
-          credential: 'openrelayproject'
-        }
-      ]
-    }
-  });
+  try {
+    // Подключаемся к комнате через Nostr (публичные релеи)
+    room = joinRoom({ appId: 'p2p-messenger-trystero-v1' }, 'room-' + id);
 
-  peer.on('open', (pid) => {
-    setStatus('онлайн: ' + pid, true);
-    renderContacts();
-  });
-  peer.on('error', (err) => {
-    console.error('PeerJS Error:', err);
-    setStatus('ошибка: ' + err.type, false);
-    if (err.type === 'unavailable-id') {
-      alert('Этот ID занят, выберите другой.');
-      els.connectBtn.disabled = false;
-      els.myId.disabled = false;
-    }
-  });
-  peer.on('connection', (incoming) => {
-    conn = incoming;
-    setupConn();
-    const known = findContact(incoming.peer);
-    upsertContact(incoming.peer, known?.name || incoming.peer);
-    openChat(incoming.peer);
-  });
-}
+    // Действие для отправки сообщений
+    sendMessageAction = room.makeAction('msg');
 
-function connectTo(peerId) {
-  if (!peer || !peer.open) return;
-  if (conn && conn.open && conn.peer === peerId) return;
-  if (conn) { try { conn.close(); } catch {} }
-  conn = peer.connect(peerId, { reliable: true });
-  setupConn();
-  setStatus('соединение...', false);
-}
+    // Приём сообщений
+    sendMessageAction.onMessage = (data, { peerId }) => {
+      if (data && data.text) {
+        upsertContact(peerId, findContact(peerId)?.name || peerId);
+        addMessage(peerId, data.text, false);
+        if (peerId === activePeer) enableComposer(true);
+      }
+    };
 
-function setupConn() {
-  conn.on('open', () => {
-    setStatus('в сети', true);
-    if (conn.peer === activePeer) enableComposer(true);
+    // Когда кто-то заходит в комнату
+    room.onPeerJoin = (peerId) => {
+      upsertContact(peerId, findContact(peerId)?.name || peerId);
+      renderContacts();
+      if (peerId === activePeer) { setStatus('в сети', true); enableComposer(true); }
+    };
+
+    // Когда кто-то выходит
+    room.onPeerLeave = (peerId) => {
+      renderContacts();
+      if (peerId === activePeer) { setStatus('не в сети', false); enableComposer(false); }
+    };
+
+    setStatus('онлайн: ' + id, true);
     renderContacts();
-  });
-  conn.on('data', (data) => {
-    if (typeof data === 'string') addMessage(conn.peer, data, false);
-  });
-  conn.on('close', () => {
-    setStatus('соединение закрыто', false);
-    if (conn.peer === activePeer) enableComposer(false);
-    renderContacts();
-  });
-  conn.on('error', (err) => setStatus('ошибка: ' + err.type, false));
+
+  } catch (err) {
+    console.error('Trystero error:', err);
+    setStatus('ошибка: ' + err.message, false);
+    els.connectBtn.disabled = false;
+    els.myId.disabled = false;
+  }
 }
 
 function sendMessage() {
   const text = els.msgInput.value.trim();
-  if (!text || !conn || !conn.open) return;
-  conn.send(text);
-  addMessage(conn.peer, text, true);
+  if (!text || !activePeer || !room) return;
+  const peer = room.getPeers()[activePeer];
+  if (!peer) return;
+
+  // Отправляем только выбранному собеседнику
+  sendMessageAction.send({ text }, { target: activePeer });
+  addMessage(activePeer, text, true);
   els.msgInput.value = '';
   els.msgInput.focus();
 }
@@ -816,4 +768,4 @@ els.msgInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMes
 })();
 </script>
 </body>
-        </html>
+</html>
